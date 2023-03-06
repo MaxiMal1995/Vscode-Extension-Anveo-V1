@@ -1,0 +1,206 @@
+{
+    "GETVALUE": {
+        "body": "GETVALUE('${1:Fieldname}');",
+        "description": "(object)\n\nReturns the value of the field.",
+        "prefix": "GETVALUE",
+        "scope": "source.lua"
+    },
+    "GETVALUE_TYPE": {
+        "body": "GETVALUE${1|_STRING,_INT,_DOUBLE,_DATETIME,_TIME|}('${2:Fieldname}');",
+        "description": "(string)\n\nReturns the value of the field explicit data type String.\n\nINT:\nReturns the value of the field explicit data type Integer. Use this for Dynamics NAV field type option. First value begins with 0.\n\nDOUBLE:\nReturns the value of the field explicit data type Double.\n\nDATETIME:\nReturns the value of the field explicit data type DateTime.\n\nTIME:\nReturns the value of the field explicit data type Time.",
+        "prefix": "GETVALUE_TYPE",
+        "scope": "source.lua"
+    },
+    "GETOPTION_ML_VALUE": {
+        "body": "GETOPTION_ML_VALU('${1:Fieldname}');",
+        "description": "(string)\n\nexplicit data type Option - returns the text value in current language",
+        "prefix": "GETOPTION_ML_VALUE",
+        "scope": "source.lua"
+    },
+    "SETVALUE": {
+        "body": "SETVALUE('${1:fieldname}', '${2:newValue}');",
+        "description": "(void)\n\nSet value of field without running the VALIDATE trigger.",
+        "prefix": "SETVALUE",
+        "scope": "source.lua"
+    },
+    "VALIDATE": {
+        "body": "VALIDATE('${1:fieldname}', '${2:newValue}');",
+        "description": "(void)\n\nSet value of field with running the VALIDATE trigger.",
+        "prefix": "VALIDATE",
+        "scope": "source.lua"
+    },
+    "INIT": {
+        "body": "INIT();",
+        "description": "(void)\n\nInitialize current record with empty values.",
+        "prefix": "INIT",
+        "scope": "source.lua"
+    },
+    "SETFILTER": {
+        "body": "SETFILTER('${1:field}', '${2:filter}' ${3:, [replaceString1]} ${4:, [replaceString2]});",
+        "description": "(void)\n\nSets a filter Note: The filter string must have logic operators and/or parameters %1, %2 only, but no data. Always put data into the arguments.",
+        "prefix": "SETFILTER",
+        "scope": "source.lua"
+    },
+    "SETRANGE": {
+        "body": "SETRANGE('${1:field}', '${2:fromvalue}', '${3:tovalue}');",
+        "description": "(void)\n\nSource Record of list, e.g. customer in a sales order list, if Anveo Page was opend through a customer list/card",
+        "prefix": "SETRANGE",
+        "scope": "source.lua"
+    },
+    "ISEMPTY": {
+        "body": "ISEMPTY();",
+        "description": "(bool)\n\nTrue, if result set is empty.",
+        "prefix": "ISEMPTY",
+        "scope": "source.lua"
+    },
+    "FINDFIRST": {
+        "body": "FINDFIRST();",
+        "description": "(bool)\n\nGo to first record. Returns true, if record is found.",
+        "prefix": "FINDFIRST",
+        "scope": "source.lua"
+    },
+    "FINDLAST": {
+        "body": "FINDLAST();",
+        "description": "(bool)\n\nGo to last record. Returns true, if record is found.",
+        "prefix": "FINDLAST",
+        "scope": "source.lua"
+    },
+    "NEXT": {
+        "body": "NEXT('${1:steps}');",
+        "description": "(int)\n\nGo to next record or move Steps forward/backward.",
+        "prefix": "NEXT",
+        "scope": "source.lua"
+    },
+    "GET": {
+        "body": "GET('${1:field}'${2:, '${3:[field 2]}'}${4:, '${5:[field 3]}'}${6:, '${7:...}'});",
+        "description": "(bool)\n\nGet a record with primary key. Returns true, if record is found.",
+        "prefix": "GET",
+        "scope": "source.lua"
+    },
+    "COUNT": {
+        "body": "COUNT();",
+        "description": "(int)\n\nNumber of Records in current filter.",
+        "prefix": "COUNT",
+        "scope": "source.lua"
+    },
+    "SETCURRENTKEY": {
+        "body": "SETCURRENTKEY('${1:field}'${2:, '${3:[field 2]}'}${4:, '${5:[field 3]}'}${6:, '${7:...}'});",
+        "description": "(void)\n\nSets current sorting A key must be available in the table.",
+        "prefix": "SETCURRENTKEY",
+        "scope": "source.lua"
+    },
+    "ASCENDING": {
+        "body": "ASCENDING(${1:SetAscending});",
+        "description": "(bool)\n\nSet current sorting.",
+        "prefix": "ASCENDING",
+        "scope": "source.lua"
+    },
+    "RESET": {
+        "body": "RESET();",
+        "description": "(void)\n\nDelete the filter.",
+        "prefix": "RESET",
+        "scope": "source.lua"
+    },
+    "FILTERGROUP": {
+        "body": "FILTERGROUP(${1:[newGroupNo]});",
+        "description": "(int)\n\nSets new FilterGroup to set additional filters that is not accessible for the user in lists.\nReset filtergroup to group 0 at the end of your script.\n\nEmpty FilterGroup return current FilterGroup",
+        "prefix": "FILTERGROUP",
+        "scope": "source.lua"
+    },
+    "INSERT": {
+        "body": "INSERT(${1|true,false|}, ${2|false,true|});",
+        "description": "(bool)\n\nInserts a new record.\n\nrunTrigger: defines whether to run local mobile app trigger, and by default, whether to run OnInsert-table trigger in Dynamics NAV on sync as well. Sync behaviour is defined in ACF App Events codeunit.\n\nscriptHandleException = true: In case of an error, the Anveo Script shows an error message and execution is interrupted. The return value is not available.\n\nscriptHandleException = false: In case of an error, the return value is false. The Anveo Script must take care about error handling. No error message is shown.",
+        "prefix": "INSERT",
+        "scope": "source.lua"
+    },
+    "MODIFY": {
+        "body": "MODIFY(${1|true,false|}, ${2|false,true|});",
+        "description": "(bool)\n\nModify a Record.\n\nrunTrigger defines whether to run local mobile app trigger, and by default, whether to run OnInsert-table trigger in Dynamics NAV on sync as well. Sync behaviour is defined in ACF App Events codeunit.\n\nscriptHandleException = true: In case of an error, the Anveo Script shows an error message and execution is interrupted. The return value is not available.\n\nscriptHandleException = false: In case of an error, the return value is false. The Anveo Script must take care about error handling. No error message is shown.",
+        "prefix": "MODIFY",
+        "scope": "source.lua"
+    },
+    "MODIFYALL":{
+        "body": "MODIFYALL('${1:fieldName}', '${2:newValue}', ${3|true,false|}, ${4|false,true|});",
+        "description": "(bool)\n\nModify a Record.\n\nrunTrigger defines whether to run local mobile app trigger, and by default, whether to run OnInsert-table trigger in Dynamics NAV on sync as well. Sync behaviour is defined in ACF App Events codeunit.\n\nscriptHandleException = true: In case of an error, the Anveo Script shows an error message and execution is interrupted. The return value is not available. \n\nscriptHandleException = false: In case of an error, the return value is false. The Anveo Script must take care about error handling. No error message is shown.",
+        "prefix": "MODIFYALL",
+        "scope": "source.lua"
+    },
+    "DELETE": {
+        "body": "DELETE(${1|true,false|}, ${2|false,true|});",
+        "description": "(bool)\n\nDelete Record.\n\nrunTrigger defines whether to run local mobile app trigger, and by default, whether to run OnInsert-table trigger in Dynamics NAV on sync as well. Sync behaviour is defined in ACF App Events codeunit.\n\nscriptHandleException = true: In case of an error, the Anveo Script shows an error message and execution is interrupted. The return value is not available.\n\nscriptHandleException = false: In case of an error, the return value is false. The Anveo Script must take care about error handling. No error message is shown.",
+        "prefix": "DELETEODIFY",
+        "scope": "source.lua"
+    },
+    "DELETEALL": {
+        "body": "DELETEALL(${1|true,false|}, ${2|false,true|});",
+        "description": "(bool)\n\nDelete all Records in Filter.\n\nrunTrigger defines whether to run local mobile app trigger, and by default, whether to run OnInsert-table trigger in Dynamics NAV on sync as well. Sync behaviour is defined in ACF App Events codeunit.\n\nscriptHandleException = true: In case of an error, the Anveo Script shows an error message and execution is interrupted. The return value is not available.\n\nscriptHandleException = false: In case of an error, the return value is false. The Anveo Script must take care about error handling. No error message is shown.",
+        "prefix": "DELETEALL",
+        "scope": "source.lua"
+    },
+    "RENAME": {
+        "body": "DELETE(${1|true,false|}, '${2:[newValue1]}'${3:, '${4:[newValue2]}'}${5:, '${6:...}'});",
+        "description": "(bool)\n\nRename Record.\n\nRename is currently not supported (iOS 3.0.0 and Android 413) and will be added in future versions.\nPlease create a new record and copy values.\n\nrunTrigger defines whether to run local mobile app trigger, and by default, whether to run OnInsert-table trigger in Dynamics NAV on sync as well. Sync behaviour is defined in ACF App Events codeunit.",
+        "prefix": "MDELETEODIFY",
+        "scope": "source.lua"
+    },
+    "CLEAR": {
+        "body": "CLEAR(${1:fieldName});",
+        "description": "(void)\n\nClears the value.",
+        "prefix": "CLEAR",
+        "scope": "source.lua"
+    },
+    "GETCOLUMNCAPTION": {
+        "body": "GETCOLUMNCAPTION(${1:fieldName});",
+        "description": "(string)\n\nReturns the translation of field.",
+        "prefix": "GETCOLUMNCAPTION",
+        "scope": "source.lua"
+    },
+    "GETTABLECAPTION": {
+        "body": "GETTABLECAPTION();",
+        "description": "(string)\n\nReturns the translation of table.",
+        "prefix": "GETTABLECAPTION",
+        "scope": "source.lua"
+    },
+    "GETTABLENAME": {
+        "body": "GETTABLENAME();",
+        "description": "(string)\n\nReturns the name of table.",
+        "prefix": "GETTABLENAME",
+        "scope": "source.lua"
+    },
+    "GETTABLENO": {
+        "body": "GETTABLENO();",
+        "description": "(int)\n\nReturns the number of table.",
+        "prefix": "GETTABLENO",
+        "scope": "source.lua"
+    },
+    "Rec": {
+        "body": "Rec",
+        "description": "Current Record , if exists on Lists. Cards always have a record. It is not possible to run a card without a record.",
+        "prefix": "Rec",
+        "scope": "source.lua"
+    },
+    "srcRec": {
+        "body": "srcRec",
+        "description": "Source Record of list, e.g. customer in a sales order list, if Anveo Page was opend through a customer list/card",
+        "prefix": "srcRec",
+        "scope": "source.lua"
+    },
+    "PAGE('ISLIST')": {
+        "body": "PAGE('ISLIST');",
+        "description": "(bool)\n\nReturns true if current Anveo Page is a list",
+        "prefix": "PAGE",
+        "scope": "source.lua"
+    },
+    "PAGE('ISCARD')": {
+        "body": "PAGE('ISCARD');",
+        "description": "(bool)\n\nReturns true if current Anveo Page is a card",
+        "prefix": "PAGE",
+        "scope": "source.lua"
+    },
+    "PAGE('GETPAGECODE')": {
+        "body": "PAGE('GETPAGECODE');",
+        "description": "(string)\n\nReturns Anveo Page Code of current Anveo Page",
+        "prefix": "PAGE",
+        "scope": "source.lua"
+    }
+}
